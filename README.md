@@ -2,7 +2,7 @@
 
 [Abhijay Ghildyal](https://abhijay9.github.io/), [Feng Liu](http://web.cecs.pdx.edu/~fliu/). In TMLR, 2023. [[OpenReview]](https://openreview.net/forum?id=r9vGSpbbRO) [[Arxiv]]()
 
-<img src="https://raw.githubusercontent.com/abhijay9/attacking_perceptual_similarity_metrics/main/imgs/teaser.png?token=GHSAT0AAAAAAB6N2RANXUMAI3IQX5NSAWAUZCSYWNQ" width=400>
+<img src="imgs/teaser.png" width=400>
 
 <b>PGD attack on LPIPS(Alex)</b>  
 <img src="https://abhijay9.github.io/images/lpips_pgd.gif" width=300>
