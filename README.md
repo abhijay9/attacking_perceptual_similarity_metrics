@@ -18,7 +18,7 @@ If you find this repository useful for your research, please use the following.
 ```
 @article{ghildyal2023attackPercepMetrics,
   title={Attacking Perceptual Similarity Metrics},
-  author={Ghildyal, Abhijay and Liu, Feng},
+  author={Abhijay Ghildyal and Feng Liu},
   journal={Transactions on Machine Learning Research},
   year={2023}
 }
