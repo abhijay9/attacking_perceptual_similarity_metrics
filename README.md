@@ -4,7 +4,7 @@
 
 [[OpenReview]](https://openreview.net/forum?id=r9vGSpbbRO) [[Arxiv]]()
 
-In this study, we systematically examine the robustness of perceptual similarity metrics to imperceptible adversarial perturbations.
+In this study, we systematically examine the robustness of both traditional and learned perceptual similarity metrics to imperceptible adversarial perturbations.
 
 <img src="imgs/teaser.png" width=400>
 
