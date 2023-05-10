@@ -2,6 +2,8 @@
 
 [Abhijay Ghildyal](https://abhijay9.github.io/), [Feng Liu](http://web.cecs.pdx.edu/~fliu/). In TMLR, 2023. [[OpenReview]](https://openreview.net/forum?id=r9vGSpbbRO) [[Arxiv]]()
 
+Add description here
+
 <img src="imgs/teaser.png" width=400>
 
 Figure (above): $I_1$ is more similar to $I_{ref}$ than $I_{0}$ according <br/> 
@@ -53,6 +55,29 @@ CUDA_VISIBLE_DEVICES=0 python transferableAdv_benchmark.py --metric stlpipsAlex 
 The results will be stored in the `results/transferableAdv_benchmark/` folder. 
 
 Finally, use the ipython notebook `results/study_results_transferableAdv_attack.ipynb` to calculate the number of flips.
+
+## Creating Transferable Adversarial Samples
+
+The following steps were performed to create the transferable adversarial samples for our benchmark.
+
+1. Create adversarial samples by attacking LPIPS(Alex) via the [spatial attack stAdv](https://github.com/rakutentech/stAdv).
+```
+CUDA_VISIBLE_DEVICES=0 python create_transferable_stAdv_samples.py
+```
+
+2. We perform a visual inspection of the samples before proceeding and weed out some of the samples that do not meet our criteria of imperceptibility.
+
+3. Using the samples selected in step 2, we attack LPIPS(Alex) via $\ell_\infty$-bounded PGD with different max iterations.
+```
+CUDA_VISIBLE_DEVICES=3 python create_transferable_PGD_samples.py
+```
+
+4. Finally, we combine the stAdv and PGD attacks by attacking the samples created via stAdv.
+```
+CUDA_VISIBLE_DEVICES=3 python create_transferable_stAdvPGD_samples.py
+```
+
+We hope the above code is able to assist and inspire additional studies to test the robustness of perceptual similarity metrics through more extensive benchmarks using various datasets and stronger adversarial attacks
 
 ## Citation
 
