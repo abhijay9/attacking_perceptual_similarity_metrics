@@ -1,8 +1,10 @@
 # Attacking Perceptual Similarity Metrics
 
-[Abhijay Ghildyal](https://abhijay9.github.io/), [Feng Liu](http://web.cecs.pdx.edu/~fliu/). In TMLR, 2023. [[OpenReview]](https://openreview.net/forum?id=r9vGSpbbRO) [[Arxiv]]()
+[Abhijay Ghildyal](https://abhijay9.github.io/), [Feng Liu](http://web.cecs.pdx.edu/~fliu/). In TMLR, 2023. [(Featured Certification)](https://jmlr.org/tmlr/papers/#) 
 
-Add description here
+[[OpenReview]](https://openreview.net/forum?id=r9vGSpbbRO) [[Arxiv]]()
+
+In this study, we systematically examine the robustness of perceptual similarity metrics to imperceptible adversarial perturbations.
 
 <img src="imgs/teaser.png" width=400>
 
@@ -16,6 +18,7 @@ in the above sample, $I_0$ becomes more similar to $I_{ref}$.
 
 <img src="https://abhijay9.github.io/images/lpips_pgd.gif" width=300 />
 Figure (above): An example of the PGD attack on LPIPS(Alex)
+
 
 ## Requirements
 
@@ -69,15 +72,35 @@ CUDA_VISIBLE_DEVICES=0 python create_transferable_stAdv_samples.py
 
 3. Using the samples selected in step 2, we attack LPIPS(Alex) via $\ell_\infty$-bounded PGD with different max iterations.
 ```
-CUDA_VISIBLE_DEVICES=3 python create_transferable_PGD_samples.py
+CUDA_VISIBLE_DEVICES=0 python create_transferable_PGD_samples.py
 ```
 
 4. Finally, we combine the stAdv and PGD attacks by attacking the samples created via stAdv.
 ```
-CUDA_VISIBLE_DEVICES=3 python create_transferable_stAdvPGD_samples.py
+CUDA_VISIBLE_DEVICES=0 python create_transferable_stAdvPGD_samples.py
 ```
 
-We hope the above code is able to assist and inspire additional studies to test the robustness of perceptual similarity metrics through more extensive benchmarks using various datasets and stronger adversarial attacks
+We hope the above code is able to assist and inspire additional studies to test the robustness of perceptual similarity metrics through more extensive benchmarks using various datasets and stronger adversarial attacks.
+
+## Whitebox PGD attack
+
+To perform the whitebox PGD attack run the following
+
+```
+CUDA_VISIBLE_DEVICES=0 python whitebox_attack_pgd.py --metric lpipsAlex --save lpipsAlex --load_size 64
+```
+
+The results are saved in `results/whitebox_attack/`. 
+
+Finally, use the ipython notebook `results/study_results_whitebox_attack.ipynb` to calculate the number of flips and other stats.
+
+We provide code to perform the reverse of our attack (see Appendix F), i.e., we attack the less similar of the two distorted images to make it more similar to the reference image.
+```
+CUDA_VISIBLE_DEVICES=0 python whitebox_toMakeMoreSimilar_attack_pgd.py --metric lpipsAlex --save lpipsAlex --load_size 64
+```
+
+<b>To add</b>. 
+Code for FGSM attack, and Benchmark on PIEAPP dataset.
 
 ## Citation
 
