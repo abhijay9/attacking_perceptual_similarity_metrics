@@ -2,7 +2,7 @@
 
 [Abhijay Ghildyal](https://abhijay9.github.io/), [Feng Liu](http://web.cecs.pdx.edu/~fliu/). In TMLR, 2023. [(Featured Certification)](https://jmlr.org/tmlr/papers/#) 
 
-[[OpenReview]](https://openreview.net/forum?id=r9vGSpbbRO) [[Arxiv]]()
+[[OpenReview]](https://openreview.net/forum?id=r9vGSpbbRO) [[Arxiv]](https://arxiv.org/abs/2305.08840)
 
 In this study, we systematically examine the robustness of both traditional and learned perceptual similarity metrics to imperceptible adversarial perturbations.
 
